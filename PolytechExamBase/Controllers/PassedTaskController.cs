@@ -32,7 +32,7 @@ namespace PolytechExamBase.Controllers
 
         // GET: api/PassedTasks/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<PassedTasks>> GetPassedTasks(int id)
+        public async Task<ActionResult<PassedTasks>> GetPassedTasks(long id)
         {
             var passed_task = await _context.PassedTasks.FindAsync(id);
 
@@ -48,7 +48,7 @@ namespace PolytechExamBase.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPassedTasks(int id, PassedTasks passed_task)
+        public async Task<IActionResult> PutPassedTasks(long id, PassedTasks passed_task)
         {
             //if (id != passed_task.PassedTasksId)
             //{
@@ -92,7 +92,7 @@ namespace PolytechExamBase.Controllers
 
         // DELETE: api/PassedTasks/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<PassedTasks>> DeletePassedTasks(int id)
+        public async Task<ActionResult<PassedTasks>> DeletePassedTasks(long id)
         {
             var passed_task = await _context.PassedTasks.FindAsync(id);
             if (passed_task == null)
@@ -106,7 +106,7 @@ namespace PolytechExamBase.Controllers
             return passed_task;
         }
 
-        private bool PassedTasksExists(int id)
+        private bool PassedTasksExists(long id)
         {
             return _context.PassedTasks.Any(e => e.PassedTaskId == id);
         }

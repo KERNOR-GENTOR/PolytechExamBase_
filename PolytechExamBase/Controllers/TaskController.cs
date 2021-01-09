@@ -32,7 +32,7 @@ namespace PolytechExamBase.Controllers
 
         // GET: api/Task/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Models.Tasks>> GetTask(int id)
+        public async Task<ActionResult<Models.Tasks>> GetTask(long id)
         {
             var task = await _context.Tasks.FindAsync(id);
 
@@ -48,7 +48,7 @@ namespace PolytechExamBase.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTask(int id, Models.Tasks task)
+        public async Task<IActionResult> PutTask(long id, Models.Tasks task)
         {
             //if (id != task.TaskId)
             //{
@@ -92,7 +92,7 @@ namespace PolytechExamBase.Controllers
 
         // DELETE: api/Task/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Models.Tasks>> DeleteTask(int id)
+        public async Task<ActionResult<Models.Tasks>> DeleteTask(long id)
         {
             var task = await _context.Tasks.FindAsync(id);
             if (task == null)
@@ -106,7 +106,7 @@ namespace PolytechExamBase.Controllers
             return task;
         }
 
-        private bool TaskExists(int id)
+        private bool TaskExists(long id)
         {
             return _context.Tasks.Any(e => e.TaskId == id);
         }

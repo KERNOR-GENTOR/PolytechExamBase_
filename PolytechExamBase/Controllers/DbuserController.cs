@@ -32,7 +32,7 @@ namespace PolytechExamBase.Controllers
 
         // GET: api/Dbusers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Dbusers>> GetUser(int id)
+        public async Task<ActionResult<Dbusers>> GetUser(long id)
         {
             var user = await _context.Dbusers.FindAsync(id);
 
@@ -48,7 +48,7 @@ namespace PolytechExamBase.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, Dbusers user)
+        public async Task<IActionResult> PutUser(long id, Dbusers user)
         {
             //if (id != user.IdUser)
             //{
@@ -92,7 +92,7 @@ namespace PolytechExamBase.Controllers
 
         // DELETE: api/Dbusers/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Dbusers>> DeleteUser(int id)
+        public async Task<ActionResult<Dbusers>> DeleteUser(long id)
         {
             var user = await _context.Dbusers.FindAsync(id);
             if (user == null)
@@ -106,7 +106,7 @@ namespace PolytechExamBase.Controllers
             return user;
         }
 
-        private bool UserExists(int id)
+        private bool UserExists(long id)
         {
             return _context.Dbusers.Any(e => e.FuckingUserId == id);
         }
